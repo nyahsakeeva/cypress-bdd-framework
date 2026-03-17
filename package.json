@@ -1,0 +1,27 @@
+{
+  "name": "cypress-bdd-framework",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nyahsakeeva/cypress-bdd-framework.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/nyahsakeeva/cypress-bdd-framework/issues"
+  },
+  "homepage": "https://github.com/nyahsakeeva/cypress-bdd-framework#readme",
+  "devDependencies": {
+    "@badeball/cypress-cucumber-preprocessor": "^24.0.1",
+    "@bahmutov/cypress-esbuild-preprocessor": "^2.2.8",
+    "cypress": "^15.12.0",
+    "esbuild": "^0.27.4"
+  }
+}
