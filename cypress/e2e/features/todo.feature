@@ -1,10 +1,12 @@
 Feature: TodoMVC task management
 
+  @smoke
   Scenario: User adds a new todo item
     Given I open the TodoMVC app
     When I add "Learn Cypress BDD"
     Then I should see "Learn Cypress BDD" in the todo list
 
+  @regression
   Scenario: User adds multiple todo items
     Given I open the TodoMVC app
     When I add "Learn Cypress"
@@ -12,18 +14,21 @@ Feature: TodoMVC task management
     And I add "Build framework"
     Then I should see 3 todo items
 
+  @smoke @regression
   Scenario: User marks a todo as completed
     Given I open the TodoMVC app
     When I add "Finish test"
     And I mark "Finish test" as completed
     Then "Finish test" should be marked as completed
 
+  @regression
   Scenario: User deletes a todo item
     Given I open the TodoMVC app
     When I add "Task to delete"
     And I delete "Task to delete"
     Then I should not see "Task to delete" in the todo list
 
+  @regression
   Scenario: User filters completed todos
     Given I open the TodoMVC app
     When I add "Active task"
