@@ -2,13 +2,19 @@
   "name": "cypress-bdd-framework",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+"main": "index.js",
 "scripts": {
-  "cy:open": "cypress open",
+"cy:open": "cypress open",
   "cy:run": "cypress run",
   "test:smoke": "cypress run --env TAGS='@smoke'",
-  "test:regression": "cypress run --env TAGS='@regression'"
+  "test:regression": "cypress run --env TAGS='@regression'",
+  "report:clean": "rm -rf cypress/reports",
+  "report:merge": "npx mochawesome-merge cypress/reports/mocha/*.json > cypress/reports/report.json",
+  "report:html": "npx marge cypress/reports/report.json --reportDir cypress/reports/html --inline",
+  "test:smoke:report": "npm run report:clean && npm run test:smoke && npm run report:merge && npm run report:html",
+  "test:regression:report": "npm run report:clean && npm run test:regression && npm run report:merge && npm run report:html"
 },
+
   "repository": {
     "type": "git",
     "url": "git+https://github.com/nyahsakeeva/cypress-bdd-framework.git"
@@ -25,11 +31,13 @@
     "@badeball/cypress-cucumber-preprocessor": "^24.0.1",
     "@bahmutov/cypress-esbuild-preprocessor": "^2.2.8",
     "cypress": "^15.12.0",
-    "esbuild": "^0.27.4"
+    "esbuild": "^0.27.4",
+    "mochawesome": "^7.1.4",
+    "mochawesome-merge": "^5.1.1",
+    "mochawesome-report-generator": "^6.3.2"
   },
-
   "cypress-cucumber-preprocessor": {
-  "stepDefinitions": "cypress/support/step_definitions/**/*.{js,ts}",
-  "filterSpecs": true
-}
+    "stepDefinitions": "cypress/support/step_definitions/**/*.{js,ts}",
+    "filterSpecs": true
+  }
 }

@@ -21,10 +21,20 @@ async function setupNodeEvents(on, config) {
 }
 
 module.exports = defineConfig({
+  reporter: "mochawesome",
+  reporterOptions: {
+    overwrite: false,
+    html: false,
+    json: true,
+    reportDir: "cypress/reports/mocha",
+  },
+
   e2e: {
     baseUrl: "https://todomvc.com/examples/react/dist/",
     specPattern: "cypress/e2e/features/*.feature",
     supportFile: "cypress/support/e2e.js",
+    video: true,
+
     async setupNodeEvents(on, config) {
       return setupNodeEvents(on, config);
     },
